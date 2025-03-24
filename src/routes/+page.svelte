@@ -4,7 +4,9 @@
 	import Whatsapp from './Components/Whatsapp.svelte';
 	import Work from './Components/Work.svelte';
 
-	let location = 'Croatia';
+	const githubAccount = 'https://github.com/RubaDevYT';
+	const instagramAccount = 'https://www.instagram.com/apsolutan_xyz/';
+	let location = 'Split, Croatia';
 	let countries = [
 		'Italy',
 		'China',
@@ -26,15 +28,31 @@
 	<title>KarloRubic.com</title>
 </svelte:head>
 
-<Work></Work>
-<div class="flex justify-center">
-	<div class="flex flex-col gap-4 mt-10 md:mt-30 text-center jutsify-center items-center">
+<div id="app-wrapper" class="flex flex-col bg-cover bg-center bg-[url(/bg.png)]">
+	<Work></Work>
+	<div class="flex flex-col gap-4 mt-12 text-center items-center">
 		<img class="w-[64px]" src="favicon.png" alt="Karlo Rubic" />
 		<Wave text="Hi! I am Karlo."></Wave>
 		<p>I am Front-End Developer<br /></p>
 		<p>I love creating interactive and responsive websites!</p>
 		<p>Current location: <span class="font-semibold">{location}</span></p>
 		<p>Able to relocate? <span class="font-semibold">Yes</span></p>
+
+		<ul class="flex flex-col gap-4 mt-10">
+			<li><p class="text-xl font-semibold">Reach out to me on my socials</p></li>
+			<ul class="flex flex-row justify-center items-center gap-4">
+				<li>
+					<a href={githubAccount} target="_blank"
+						><img src="gh.png" alt="karlo rubic github" width="48px" /></a
+					>
+				</li>
+				<li>
+					<a href={instagramAccount} target="_blank"
+						><img src="ig.png" alt="karlo rubic github" width="48px" /></a
+					>
+				</li>
+			</ul>
+		</ul>
 
 		<div class="mt-15 flex justify-center flex-col items-center gap-4">
 			<img src="country.png" alt="globe" />
@@ -59,5 +77,12 @@
 			</ul>
 		</div>
 	</div>
+	<Whatsapp></Whatsapp>
 </div>
-<Whatsapp></Whatsapp>
+
+<style>
+	#app-wrapper {
+		height: 100%;
+		min-height: 90vh;
+	}
+</style>
